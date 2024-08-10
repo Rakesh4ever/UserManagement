@@ -12,6 +12,6 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class GlobalExceptionHandler {
     @ExceptionHandler(value =UserNotFoundException.class )
     public ResponseEntity<String> userNotFound(UserNotFoundException ex){
-        return new ResponseEntity<String>("An error occured, "+ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        return new ResponseEntity<String>(ex.getMessage(), HttpStatus.NOT_FOUND);
     }
 }

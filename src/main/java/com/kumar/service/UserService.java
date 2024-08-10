@@ -68,4 +68,8 @@ return new ResponseEntity<>(updatedUser, HttpStatus.OK);
        }
         return null;
     }
+
+    public Optional<User> findUserById(Integer userId) {
+      return   userRepository.findById(userId);
+    }
 }
