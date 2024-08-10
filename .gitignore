@@ -31,3 +31,6 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Desktop Services Store
+.DS_Store
