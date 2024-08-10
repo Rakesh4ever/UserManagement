@@ -1,8 +1,10 @@
 package com.kumar.controller;
 
 import com.kumar.entity.User;
+import com.kumar.exception.UserNotFoundException;
 import com.kumar.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -37,11 +39,16 @@ public class UserController {
     }
 
     @DeleteMapping("/delete/{userId}")
-    public void deleteUser(@PathVariable Integer userId){
-        userService.deleteUserRecord(userId);
-       // return "User deleted";
+    public ResponseEntity<?> deleteUser(@PathVariable Integer userId){
+        // ResponseEntity ResponseEntity=  new ResponseEntity<String>();
+        Boolean status=userService.deleteUserRecord(userId);
+        if (status) {
+            return new ResponseEntity<String>("User deleted", HttpStatus.OK);
+        }
+        else {
+            throw new UserNotFoundException(userId+" User not available");
+        }
     }
-
     @PatchMapping("/partialUpdate/{id}")
     public ResponseEntity<User> partialUserUpdate( @PathVariable("id") Integer id,@RequestBody Map<Object,Object> field) {
 
