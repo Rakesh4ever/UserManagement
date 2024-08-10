@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 /**
  * @author RakeshKumar created on 19/07/23
@@ -33,6 +34,15 @@ public class UserController {
         return userService.geUsers();
     }
 
+    @GetMapping("/{userId}")
+    public Optional<User> findUserById(@PathVariable Integer userId){
+       Optional<User> user= userService.findUserById(userId);
+       if(user.isPresent())
+           return user;
+       else
+         throw new UserNotFoundException("User with ID: "+ userId+"  not available");
+    }
+
     @PutMapping("/update/{userId}")
     public User updateUser(@RequestBody User user,@PathVariable Integer userId){
       return   userService.updateUserDetails(user,userId);
@@ -46,7 +56,7 @@ public class UserController {
             return new ResponseEntity<String>("User deleted", HttpStatus.OK);
         }
         else {
-            throw new UserNotFoundException(userId+" User not available");
+            throw new UserNotFoundException("User with ID: "+ userId+"  not available");
         }
     }
     @PatchMapping("/partialUpdate/{id}")
