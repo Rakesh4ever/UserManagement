@@ -3,6 +3,7 @@ package com.kumar.controller;
 import com.kumar.entity.User;
 import com.kumar.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,12 +16,12 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/user")
-@CrossOrigin("*")
+@CrossOrigin(origins = "http://localhost:4200")
 public class UserController {
     @Autowired
  private  UserService userService;
 
-    @PostMapping("/save")
+    @PostMapping(value={"/save"}, produces = {MediaType.APPLICATION_JSON_VALUE})
     public User saveUser(@RequestBody User user){
 
         return userService.save(user);
@@ -36,9 +37,9 @@ public class UserController {
     }
 
     @DeleteMapping("/delete/{userId}")
-    public String deleteUser(@PathVariable Integer userId){
+    public void deleteUser(@PathVariable Integer userId){
         userService.deleteUserRecord(userId);
-        return "User deleted";
+       // return "User deleted";
     }
 
     @PatchMapping("/partialUpdate/{id}")
