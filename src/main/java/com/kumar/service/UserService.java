@@ -44,9 +44,13 @@ public class UserService {
 
 
     }
-
-    public void deleteUserRecord(Integer userId) {
-        userRepository.deleteById(userId);
+    public Boolean deleteUserRecord(Integer userId) {
+        if (userRepository.findById(userId).isPresent()){
+            userRepository.deleteById(userId);
+            return true;
+        }
+        else
+            return false;
     }
 
 
@@ -63,5 +67,9 @@ User updatedUser=userRepository.save(user.get());
 return new ResponseEntity<>(updatedUser, HttpStatus.OK);
        }
         return null;
+    }
+
+    public Optional<User> findUserById(Integer userId) {
+      return   userRepository.findById(userId);
     }
 }
