@@ -44,9 +44,13 @@ public class UserService {
 
 
     }
-
-    public void deleteUserRecord(Integer userId) {
-        userRepository.deleteById(userId);
+    public Boolean deleteUserRecord(Integer userId) {
+        if (userRepository.findById(userId).isPresent()){
+            userRepository.deleteById(userId);
+            return true;
+        }
+        else
+            return false;
     }
 
 
