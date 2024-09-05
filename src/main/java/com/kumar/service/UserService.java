@@ -28,8 +28,8 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public User updateUserDetails(User newUser, Integer userId) {
-        return userRepository.findById(userId)
+    public Optional<User> updateUserDetails(User newUser, Integer userId) {
+        return Optional.of(userRepository.findById(userId)
                 .map(user -> {
                     user.setName(newUser.getName());
                     user.setEmail(newUser.getEmail());
@@ -40,7 +40,7 @@ public class UserService {
                 .orElseGet(() -> {
                     newUser.setUserId(userId);
                     return userRepository.save(newUser);
-                });
+                }));
 
 
     }
