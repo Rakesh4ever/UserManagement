@@ -6,6 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -13,9 +14,10 @@ import lombok.NoArgsConstructor;
  * @author RakeshKumar created on 19/07/23
  */
 @Entity
+@Builder
 //@Data
-//@NoArgsConstructor
-//@AllArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
 //@Table(name="USER")
 public class User {
     @Id
@@ -25,10 +27,7 @@ public class User {
     private String email;
     private String password;
     private String address;
-    
-    
-	public User() {
-	}
+
 	public Integer getUserId() {
 		return userId;
 	}
