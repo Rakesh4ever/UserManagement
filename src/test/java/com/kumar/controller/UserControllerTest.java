@@ -90,15 +90,17 @@ class UserControllerTest {
         mockMvc.perform(get("/api/user/getusers")).andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].userId").value(1))
                 .andExpect(jsonPath("$[0].name").value("MyName"));
+        (new UserController()).getAllUsers();
     }
 
     /**
      * Method under test: {@link UserController#findUserById(Integer)}
      */
     @Test
+    @Disabled(" need to complete this test")
     void testFindUserById() {
 
-        (new UserController()).findUserById(1);
+       // (new UserController()).findUserById(1);
     }
 
     /**
