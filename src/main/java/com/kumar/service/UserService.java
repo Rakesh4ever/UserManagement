@@ -2,6 +2,8 @@ package com.kumar.service;
 
 import com.kumar.entity.User;
 import com.kumar.repository.UserRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,17 +20,22 @@ import java.util.Optional;
  */
 @Service
 public class UserService {
+    private static Logger logger= LoggerFactory.getLogger(UserService.class);
     @Autowired
     private UserRepository userRepository;
     public User save(User user) {
+        logger.info("Saving user:Service/DAO");
       return   userRepository.save(user);
     }
 
     public List<User> geUsers() {
+        logger.info("Retrieving all users record from Service/DAO");
         return userRepository.findAll();
     }
 
     public Optional<User> updateUserDetails(User newUser, Integer userId) {
+        logger.info("Updating  user data from Service/DAO");
+
         return Optional.of(userRepository.findById(userId)
                 .map(user -> {
                     user.setName(newUser.getName());
@@ -45,6 +52,7 @@ public class UserService {
 
     }
     public Boolean deleteUserRecord(Integer userId) {
+        logger.info("Deleting user data from Service/DAO");
         if (userRepository.findById(userId).isPresent()){
             userRepository.deleteById(userId);
             return true;
@@ -70,6 +78,7 @@ return new ResponseEntity<>(updatedUser, HttpStatus.OK);
     }
 
     public Optional<User> findUserById(Integer userId) {
+        logger.info("Getting  user data from Repository");
       return   userRepository.findById(userId);
     }
 }
