@@ -52,8 +52,6 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 @ExtendWith(MockitoExtension.class)
 @AutoConfigureMockMvc
 public class UserManagementIntegrationTest {
-   /* @LocalServerPort
-    private Integer port;*/
     @MockBean
     private UserService userService;
     @Autowired
