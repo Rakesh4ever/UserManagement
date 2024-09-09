@@ -35,6 +35,7 @@ public class UserService {
 
     public Optional<User> updateUserDetails(User newUser, Integer userId) {
         logger.info("Updating  user data from Service/DAO");
+
         return Optional.of(userRepository.findById(userId)
                 .map(user -> {
                     user.setName(newUser.getName());
