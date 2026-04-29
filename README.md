@@ -20,3 +20,16 @@ Other reference for other OS  https://github.com/rakyll/hey?tab=readme-ov-file.
 In the above command, we are giving One lac request at once. Means We are testing the app that if we passing 100000 request at a time then how much time app will take to process it.
 ### Report is attached here:
 ![image](https://github.com/user-attachments/assets/d8b16083-c83e-4777-b8b8-fca97a887243)
+
+### Production deployment steps with AWS ECR
+
+![img_2.png](img_2.png)
+
+Pipeline Explanation (with the diagram above):
+Flow Summary:
+
+GitHub → Triggers Jenkins pipeline
+Jenkins performs: Build → Test → SonarQube Code Quality Check
+If Quality Gate passes → Builds Docker image
+Pushes image to Amazon ECR
+Deploys updated image to Amazon ECS (Fargate)
