@@ -86,11 +86,10 @@ class UserControllerTest {
      */
     @Test
     void testGetAllUsers() throws Exception {
-        given(userService.geUsers()).willReturn(getUsers());
+        given(userService.getUsers()).willReturn(getUsers());
         mockMvc.perform(get("/api/user/getusers")).andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].userId").value(1))
                 .andExpect(jsonPath("$[0].name").value("MyName"));
-        (new UserController()).getAllUsers();
 
     }
 
@@ -140,4 +139,3 @@ class UserControllerTest {
         userController.partialUserUpdate(1, new HashMap<>());
     }
 }
-

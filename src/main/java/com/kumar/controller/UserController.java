@@ -36,7 +36,7 @@ public class UserController {
     @GetMapping("/getusers")
     public List<User> getAllUsers(){
         logger.info("Getting all users data...Controller");
-        return userService.geUsers();
+        return userService.getUsers();
     }
 
     @GetMapping("/{userId}")
