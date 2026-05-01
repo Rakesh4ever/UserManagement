@@ -58,7 +58,7 @@
 
 ---
 
-## 🎯 Quick Start (30 seconds)
+##  Quick Start (30 seconds)
 
 ```bash
 # 1. Build the application
@@ -84,10 +84,10 @@ curl -X GET http://localhost:9002/api/user/getusers \
 
 ---
 
-## 📋 Complete Documentation Index
+##  Complete Documentation Index
 
 ### For Complete Detailed Documentation:
-👉 **[See COMPREHENSIVE_README.md](./COMPREHENSIVE_README.md)** for:
+ **[See COMPREHENSIVE_README.md](./COMPREHENSIVE_README.md)** for:
 - ✅ Full project architecture
 - ✅ Prerequisites and setup
 - ✅ Database configuration
@@ -100,7 +100,7 @@ curl -X GET http://localhost:9002/api/user/getusers \
 
 ---
 
-## 🏗️ Project Overview
+##  Project Overview
 
 **User Management API** is an enterprise-grade REST API built with:
 - **Framework**: Spring Boot 3.3.x
@@ -109,7 +109,7 @@ curl -X GET http://localhost:9002/api/user/getusers \
 - **ORM**: Hibernate/JPA
 - **Build**: Maven
 
-### ✨ Key Features:
+###  Key Features:
 - ✅ Secure user registration and login
 - ✅ JWT token-based authentication
 - ✅ Complete CRUD operations for users
@@ -125,7 +125,7 @@ curl -X GET http://localhost:9002/api/user/getusers \
 
 ---
 
-## 🔐 Authentication Flow
+## Authentication Flow
 
 1. **Register**: User creates account with email and password
 2. **Login**: User authenticates with email/password, receives JWT token
@@ -135,7 +135,7 @@ curl -X GET http://localhost:9002/api/user/getusers \
 
 ---
 
-## 📡 Main API Endpoints
+##  Main API Endpoints
 
 | Method | Endpoint | Authentication | Description |
 |--------|----------|-----------------|-------------|
@@ -150,7 +150,7 @@ curl -X GET http://localhost:9002/api/user/getusers \
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites:
 ```bash
@@ -178,7 +178,7 @@ curl -s http://localhost:9002/actuator/health
 
 ---
 
-## 📝 Basic Usage Examples
+## Basic Usage Examples
 
 ### 1. Register User
 ```bash
@@ -252,7 +252,7 @@ curl -X DELETE http://localhost:9002/api/user/delete/1 \
 
 ---
 
-## 🧪 Automated Testing
+##  Automated Testing
 
 Create a test script: `test_api.sh`
 
@@ -275,7 +275,7 @@ Run: `chmod +x test_api.sh && ./test_api.sh`
 
 ---
 
-## 🔒 Security
+##  Security
 
 ### Password Encryption:
 - ✅ BCrypt encoding with strength 10
@@ -296,7 +296,7 @@ Run: `chmod +x test_api.sh && ./test_api.sh`
 
 ---
 
-## 📊 Performance Testing Report: Using Hey Tool
+## Performance Testing Report: Using Hey Tool
 
 To install Hey tool its straight forward using Homebrew command for Mac like : [brew install hey] also find it from https://formulae.brew.sh/formula/hey.
 Other reference for other OS  https://github.com/rakyll/hey?tab=readme-ov-file.
