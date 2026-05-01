@@ -87,7 +87,7 @@ curl -X GET http://localhost:9002/api/user/getusers \
 ##  Complete Documentation Index
 
 ### For Complete Detailed Documentation:
- **[See COMPREHENSIVE_README.md](./COMPREHENSIVE_README.md)** for:
+ 
 - ✅ Full project architecture
 - ✅ Prerequisites and setup
 - ✅ Database configuration
