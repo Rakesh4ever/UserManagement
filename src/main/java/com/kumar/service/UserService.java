@@ -28,7 +28,7 @@ public class UserService {
       return   userRepository.save(user);
     }
 
-    public List<User> geUsers() {
+    public List<User> getUsers() {
         logger.info("Retrieving all users record from Service/DAO");
         return userRepository.findAll();
     }
@@ -74,7 +74,7 @@ public class UserService {
 User updatedUser=userRepository.save(user.get());
 return new ResponseEntity<>(updatedUser, HttpStatus.OK);
        }
-        return null;
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
     public Optional<User> findUserById(Integer userId) {
