@@ -71,5 +71,9 @@ public class UserController {
 
       return   userService.partialUpdateUser(id , field);
     }
-
+    @PostMapping(value = {"/register"}, produces = {MediaType.APPLICATION_JSON_VALUE})
+    public User registerUser(@RequestBody User user) {
+        logger.info("Registering new user: {}", user.getEmail());
+        return userService.save(user);
+    }
 }
